@@ -40,25 +40,25 @@ namespace Library
             visitor.Visit(this);
         }
         
-        public int getAges()
+        public string getAges()
         {
             Visitor visitor = new NodeVisitor();
             this.Accept(visitor);
-            return visitor.Ages;
+            return $"El total de edades del árbol es: {visitor.Ages}";
         }
 
-        public int oldestSon()
+        public string oldestSon()
         {
             Visitor visitor = new NodeOldestSonVisitor();
             this.Accept(visitor);
-            return visitor.Ages;
+            return $"El hijo más viejo del arbol tiene : {visitor.Ages}";
         }
 
         public string largestName()
         {
             Visitor visitor = new NodeLargestNameVisitor();
             this.Accept(visitor);
-            return visitor.Name;
+            return $"El nombre más largo del árbol es: {visitor.Name}";
         }
     }
 }
